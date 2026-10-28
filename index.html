@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Honeyyy 💗</title>
+
+<style>
+:root {
+  --pink: #f5a9c5;
+  --dark-pink: #d85d91;
+  --light-pink: #fff0f6;
+  --cream: #fffaf1;
+  --text: #71465a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #fff9fc 0px,
+      #fff9fc 22px,
+      #fff0f6 22px,
+      #fff0f6 44px
+    );
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #e9a2bf;
+  border-radius: 30px;
+  padding: 12px 20px;
+  margin: 6px;
+  background: #fff;
+  color: #a74676;
+  font-size: 15px;
+  font-family: inherit;
+  box-shadow: 0 4px 12px #d88eaa25;
+  transition: transform .2s, background .2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: #fff0f6;
+}
+
+button:focus-visible {
+  outline: 3px solid #d85d91;
+  outline-offset: 3px;
+}
+
+h1 {
+  font-size: clamp(34px, 8vw, 58px);
+  margin: 12px 0;
+  color: #c94f83;
+}
+
+h2 {
+  color: #c94f83;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.paper {
+  width: min(92%, 700px);
+  margin: 28px auto;
+  padding: 28px 20px;
+  position: relative;
+  border: 1px solid #f3d6e2;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 8px 30px #c66d9120;
+}
+
+.tape {
+  position: absolute;
+  width: 100px;
+  height: 25px;
+  top: -10px;
+  left: calc(50% - 50px);
+  transform: rotate(-3deg);
+  background: #f8c8d9bb;
+}
+
+.eyebrow {
+  color: #bd7293;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+.center {
+  text-align: center;
+}
+
+.small-text {
+  font-size: 14px;
+  color: #a36c83;
+}
+
+#lockScreen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.lock-card {
+  width: min(100%, 420px);
+  padding: 32px 22px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid #f3d6e2;
+  box-shadow: 0 10px 35px #c66d9125;
+}
+
+input {
+  padding: 13px;
+  width: min(100%, 260px);
+  border: 1px solid #e9b2c9;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 16px;
+  margin: 12px 0;
+  color: var(--text);
+}
+
+#birthdaySite {
+  padding: 20px 0 40px;
+}
+
+.hero {
+  padding: 45px 16px 28px;
+}
+
+.heart {
+  font-size: 30px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  50% { transform: scale(1.15); }
+}
+
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.note-card {
+  padding: 18px 12px;
+  background: #fff4f8;
+  border: 1px solid #f3d6e2;
+  border-radius: 16px;
+}
+
+.note-message {
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 12px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.letter {
+  white-space: pre-line;
+  text-align: left;
+  background: var(--cream);
+  border: 1px dashed #e6a8c1;
+  border-radius: 14px;
+  padding: 22px;
+  margin-top: 18px;
+  line-height: 1.9;
+  animation: reveal .45s ease;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Closed main letter envelope */
+.envelope-stage {
+  margin: 24px auto 10px;
+  width: min(100%, 360px);
+}
+
+.big-envelope {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 18px;
+  color: var(--text);
+}
+
+.big-envelope:hover {
+  background: transparent;
+  transform: translateY(-3px);
+}
+
+.envelope-art {
+  display: block;
+  position: relative;
+  width: min(100%, 300px);
+  height: 190px;
+  margin: 12px auto;
+  background: #f6b4cc;
+  border: 2px solid #e797b6;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 22px #c66d9130;
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #f9c8d9;
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  background: #fce0ea;
+  clip-path: polygon(0 0, 100% 0, 50% 57%);
+  border-bottom: 1px solid #e797b6;
+  z-index: 3;
+  transition: transform .4s;
+  transform-origin: top;
+}
+
+.envelope-pocket {
+  position: absolute;
+  inset: 0;
+  background: #f4a5c1;
+  clip-path: polygon(0 100%, 0 28%, 50% 67%, 100% 28%, 100% 100%);
+  z-index: 4;
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  font-size: 35px;
+}
+
+.envelope-art.opened .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-caption {
+  display: block;
+  font-size: 16px;
+  color: #b24d7e;
+  margin-top: 12px;
+}
+
+.hug-heart {
+  font-size: 55px;
+  margin: 12px;
+}
+
+.hug-track {
+  width: min(100%, 300px);
+  height: 12px;
+  background: #f9dce7;
+  border-radius: 20px;
+  margin: 18px auto;
+  overflow: hidden;
+}
+
+.hug-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #f3a0c0, #d85d91);
+  border-radius: 20px;
+  transition: width .3s;
+}
+
+footer {
+  padding: 25px 12px;
+  color: #a36c83;
+  font-size: 13px;
+}
+
+#confettiLayer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  font-size: 20px;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(600deg);
+    opacity: 0;
+  }
+}
+
+#backTop {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 10;
+}
+
+@media (max-width: 480px) {
+  .paper {
+    padding: 25px 15px;
+  }
+
+  .letter {
+    padding: 16px;
+  }
+
+  .envelope-art {
+    height: 165px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="confettiLayer"></div>
+
+<!-- PASSWORD SCREEN -->
+<section id="lockScreen">
+  <div class="lock-card">
+    <div class="heart">💗</div>
+    <p class="eyebrow">a tiny surprise awaits</p>
+    <h2>For my Honeyyy 🎀</h2>
+    <p>Enter our special code to unlock your birthday surprise.</p>
+
+    <form id="passwordForm">
+      <input
+        id="passwordInput"
+        type="password"
+        placeholder="Enter secret code"
+        aria-label="Secret code"
+        autocomplete="off"
+        required
+      >
+      <br>
+      <button type="submit">Unlock my surprise 💌</button>
+    </form>
+
+    <p id="passwordMessage" class="small-text" role="status"></p>
+  </div>
+</section>
+
+<!-- MAIN BIRTHDAY WEBSITE -->
+<main id="birthdaySite" class="hidden">
+
+  <header class="hero">
+    <div class="heart">🎀 💗 🎀</div>
+    <p class="eyebrow">a little website made with love</p>
+    <h1>Happy Birthday,<br>Honeyyy! ♡</h1>
+    <p>
+      Today is all about celebrating you and all the little things
+      that make you so special.
+    </p>
+
+    <button id="confettiButton">Make it sparkle ✨</button>
+    <button id="musicButton">Play birthday song 🎵</button>
+
+    <audio
+      id="birthdaySong"
+      src="birthday-song.mp3.mpeg"
+      preload="none"
+      loop
+    ></audio>
+
+    <p class="small-text">
+      I LOVEEE YOUUU SO MUCH💗
+    </p>
+  </header>
+
+  <section class="paper">
+    <div class="tape"></div>
+    <p class="eyebrow">a little reminder</p>
+    <h2>You are so special 💗</h2>
+    <p>
+      I hope your birthday is filled with beautiful moments,
+      unexpected happiness, lots of laughter, and everything
+      that makes your heart feel warm.
+    </p>
+    <p>May this year be gentle with you and bring you lovely memories. 🎂</p>
+  </section>
+
+  <!-- SPECIAL QUESTION -->
+  <section class="paper" id="specialQuestion">
+    <div class="tape"></div>
+    <p class="eyebrow">before your surprise continues</p>
+    <h2>Do you know how special you are to me? ♡</h2>
+    <p>Choose your answer, Honeyyy! 💌</p>
+
+    <button id="yesButton">Yesss 💗</button>
+    <button id="noButton">Maybe not 🙈</button>
+
+    <p id="questionMessage" role="status"></p>
+  </section>
+
+  <div id="afterYes" class="hidden">
+
+    <!-- MINI NOTES -->
+    <section class="paper">
+      <div class="tape"></div>
+      <p class="eyebrow">little things for you</p>
+      <h2>Open your tiny notes 💌</h2>
+      <p>Tap each envelope to read a little message.</p>
+
+      <div class="note-grid">
+
+        <div class="note-card">
+          <div style="font-size:35px;">💌</div>
+          <h3>A little wish</h3>
+          <button data-letter="letter1">Open note ♡</button>
+          <div class="note-message hidden" id="letter1">
+            I hope your days are filled with laughter, peaceful
+            moments, and beautiful surprises. You deserve so much
+            happiness. 💗
+          </div>
+        </div>
+
+        <div class="note-card">
+          <div style="font-size:35px;">🎀</div>
+          <h3>A reminder</h3>
+          <button data-letter="letter2">Open note ♡</button>
+          <div class="note-message hidden" id="letter2">
+            Never forget how much your presence can mean.
+            Keep being yourself, keep dreaming, and keep growing.
+            You are one of a kind. 🌷
+          </div>
+        </div>
+
+        <div class="note-card">
+          <div style="font-size:35px;">💗</div>
+          <h3>For your smile</h3>
+          <button data-letter="letter3">Open note ♡</button>
+          <div class="note-message hidden" id="letter3">
+            Whenever you need a little reminder, remember that
+            you matter and you deserve kindness, joy, and lovely
+            things in life. ✨
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MAIN LETTER: CLOSED ENVELOPE UNTIL TAPPED -->
+    <section class="paper" id="loveLetterSection">
+      <div class="tape"></div>
+
+      <div class="center">
+        <p class="eyebrow">a letter from your madam</p>
+        <h2>Just for you, Honeyyy ♡</h2>
+        <p id="letterIntro">
+          There's a little letter waiting inside.
+          Tap the envelope to open it! 💌
+        </p>
+      </div>
+
+      <div class="envelope-stage">
+        <button
+          class="big-envelope"
+          id="loveEnvelopeBtn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="loveLetter"
+          aria-label="Open your birthday letter"
+        >
+          <span class="envelope-art" id="loveEnvelopeArt" aria-hidden="true">
+            <span class="envelope-back"></span>
+            <span class="envelope-flap"></span>
+            <span class="envelope-pocket"></span>
+            <span class="envelope-seal">💗</span>
+          </span>
+
+          <span class="envelope-caption" id="loveEnvelopeHint">
+            Tap to open your letter 💗
+          </span>
+        </button>
+      </div>
+
+      <div class="letter hidden" id="loveLetter">
+Happy Birthday, my Honeyyy! 💗
+
+I wish I could put every lovely thing I want for you into words, but I hope you can feel even a little of it through this tiny surprise.
+
+Thank you for being you — for the little moments, the laughs, and the memories that mean more than they might seem. I hope this new chapter brings you peace when you need it, courage when things feel difficult, and happiness in the smallest everyday moments.
+
+Never forget that you matter, your dreams matter, and you deserve to be celebrated — today and every day.
+
+Keep smiling, keep growing, and keep being your lovely self.
+
+With lots and lots of love,
+Your Madam 🎀
+      </div>
+    </section>
+
+    <!-- VIRTUAL HUG -->
+    <section class="paper" id="hugSection">
+      <div class="tape"></div>
+      <p class="eyebrow">sending you a little warmth</p>
+      <h2>Your birthday hug 🧸</h2>
+      <p>Tap the button five times to fill your virtual hug meter!</p>
+
+      <div class="hug-heart" id="hugHeart">🧸💗</div>
+
+      <div
+        class="hug-track"
+        role="progressbar"
+        aria-label="Virtual hug progress"
+        aria-valuemin="0"
+        aria-valuemax="5"
+        aria-valuenow="0"
+        id="hugProgress"
+      >
+        <div class="hug-fill" id="hugFill"></div>
+      </div>
+
+      <p id="hugMessage">Hugs collected: 0/5</p>
+      <button id="hugButton">Send a hug 🤗</button>
+    </section>
+
+  </div>
+
+  <footer>
+    Made with ♥ by Your Madam · Happy Birthday, Honeyyy 🎀
+  </footer>
+
+</main>
+
+<button id="backTop" class="hidden" aria-label="Back to top">↑</button>
+
+<script>
+/* PASSWORD UNLOCK */
+const passwordForm = document.getElementById("passwordForm");
+const passwordInput = document.getElementById("passwordInput");
+const passwordMessage = document.getElementById("passwordMessage");
+const lockScreen = document.getElementById("lockScreen");
+const birthdaySite = document.getElementById("birthdaySite");
+
+passwordForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (passwordInput.value === "2412") {
+    lockScreen.classList.add("hidden");
+    birthdaySite.classList.remove("hidden");
+    passwordMessage.textContent = "";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    passwordMessage.textContent = "Oops! Try your special code again 💗";
+    passwordInput.value = "";
+    passwordInput.focus();
+  }
+});
+
+/* SPECIAL QUESTION */
+const yesButton = document.getElementById("yesButton");
+const noButton = document.getElementById("noButton");
+const afterYes = document.getElementById("afterYes");
+const questionMessage = document.getElementById("questionMessage");
+
+yesButton.addEventListener("click", function() {
+  afterYes.classList.remove("hidden");
+  questionMessage.textContent = "You better know it, Honeyyy! 💗🎀";
+  yesButton.textContent = "Yesss! 💖";
+  document.getElementById("specialQuestion").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+});
+
+noButton.addEventListener("click", function() {
+  questionMessage.textContent =
+    "Then let this little surprise remind you! You are special. 💗";
+  noButton.textContent = "Okay, tell me! 💌";
+});
+
+/* MINI NOTES */
+document.querySelectorAll("[data-letter]").forEach(function(button) {
+  button.addEventListener("click", function() {
+    const noteId = button.getAttribute("data-letter");
+    const note = document.getElementById(noteId);
+    const opening = note.classList.contains("hidden");
+
+    note.classList.toggle("hidden", !opening);
+    button.textContent = opening ? "Close note ♡" : "Open note ♡";
+  });
+});
+
+/* MAIN ENVELOPE: OPEN AND CLOSE LETTER */
+const loveEnvelopeBtn = document.getElementById("loveEnvelopeBtn");
+const loveEnvelopeArt = document.getElementById("loveEnvelopeArt");
+const loveEnvelopeHint = document.getElementById("loveEnvelopeHint");
+const loveLetter = document.getElementById("loveLetter");
+const letterIntro = document.getElementById("letterIntro");
+
+loveEnvelopeBtn.addEventListener("click", function() {
+  const opening = loveLetter.classList.contains("hidden");
+
+  loveLetter.classList.toggle("hidden", !opening);
+  loveEnvelopeArt.classList.toggle("opened", opening);
+
+  loveEnvelopeBtn.setAttribute("aria-expanded", String(opening));
+
+  if (opening) {
+    loveEnvelopeHint.textContent = "Tap to close your letter 💌";
+    letterIntro.textContent = "A little letter, made just for you. 💗";
+
+    setTimeout(function() {
+      loveLetter.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    }, 120);
+  } else {
+    loveEnvelopeHint.textContent = "Tap to open your letter 💗";
+    letterIntro.textContent =
+      "There's a little letter waiting inside. Tap the envelope to open it! 💌";
+  }
+});
+
+/* CONFETTI */
+const confettiButton = document.getElementById("confettiButton");
+const confettiLayer = document.getElementById("confettiLayer");
+
+function makeConfetti() {
+  const symbols = ["💗", "💖", "🎀", "✨", "🌸", "💕"];
+
+  for (let i = 0; i < 45; i++) {
+    const piece = document.createElement("span");
+    piece.className = "confetti-piece";
+    piece.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    piece.style.left = Math.random() * 100 + "%";
+    piece.style.animationDelay = Math.random() * 1.5 + "s";
+    piece.style.fontSize = (14 + Math.random() * 15) + "px";
+
+    confettiLayer.appendChild(piece);
+
+    setTimeout(function() {
+      piece.remove();
+    }, 5000);
+  }
+}
+
+confettiButton.addEventListener("click", makeConfetti);
+
+/* BIRTHDAY MUSIC */
+const musicButton = document.getElementById("musicButton");
+const birthdaySong = document.getElementById("birthdaySong");
+let musicPlaying = false;
+
+musicButton.addEventListener("click", async function() {
+  if (!musicPlaying) {
+    try {
+      await birthdaySong.play();
+      musicPlaying = true;
+      musicButton.textContent = "Pause birthday song ⏸️";
+    } catch (error) {
+      musicButton.textContent =
+        "Add birthday-song.mp3.mpeg to the folder 🎵";
+    }
+  } else {
+    birthdaySong.pause();
+    musicPlaying = false;
+    musicButton.textContent = "Play birthday song 🎵";
+  }
+});
+
+birthdaySong.addEventListener("ended", function() {
+  musicPlaying = false;
+  musicButton.textContent = "Play birthday song 🎵";
+});
+
+/* VIRTUAL HUG METER */
+let hugs = 0;
+const hugButton = document.getElementById("hugButton");
+const hugFill = document.getElementById("hugFill");
+const hugMessage = document.getElementById("hugMessage");
+const hugHeart = document.getElementById("hugHeart");
+const hugProgress = document.getElementById("hugProgress");
+
+hugButton.addEventListener("click", function() {
+  if (hugs < 5) {
+    hugs++;
+  }
+
+  hugFill.style.width = (hugs / 5 * 100) + "%";
+  hugProgress.setAttribute("aria-valuenow", hugs);
+
+  if (hugs < 5) {
+    hugMessage.textContent = "Hugs collected: " + hugs + "/5";
+  } else {
+    hugMessage.textContent =
+      "Your hug meter is full! Sending you the biggest birthday hug! 🧸💗";
+    hugHeart.textContent = "🧸💖✨";
+    hugButton.textContent = "All hugs sent! 💗";
+    makeConfetti();
+  }
+});
+
+/* BACK TO TOP */
+const backTop = document.getElementById("backTop");
+
+window.addEventListener("scroll", function() {
+  if (window.scrollY > 300) {
+    backTop.classList.remove("hidden");
+  } else {
+    backTop.classList.add("hidden");
+  }
+});
+
+backTop.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+</script>
+
+</body>
+</html>
